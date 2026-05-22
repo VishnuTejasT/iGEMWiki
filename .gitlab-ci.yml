@@ -1,10 +1,11 @@
-image: python:3.6
+image: alpine:latest
 
 pages:
   stage: build
   script:
-    - pip install --no-cache-dir -r dependencies.txt
-    - FLASK_APP=app.py flask freeze
+    - mkdir -p public
+    - cp -a wiki/. public/
+    - test -f public/index.html
   artifacts:
     paths:
       - public
@@ -13,4 +14,3 @@ pages:
       when: never # No runners will run on branches other than main
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       when: always
-
