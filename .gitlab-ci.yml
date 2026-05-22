@@ -4,14 +4,13 @@ pages:
   stage: build
   script:
     - pip install --no-cache-dir -r dependencies.txt
-    # This line patches the broken Frozen-Flask import so it works on Python 3.13:
-    - export FLASK_APP=app:main_app
-    - flask freeze
+    - FLASK_APP=app.py flask freeze
   artifacts:
     paths:
       - public
   rules:
     - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
-      when: never
+      when: never # No runners will run on branches other than main
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       when: always
+
