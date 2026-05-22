@@ -2,32 +2,65 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Denmark-GA — Wiki (Placeholder)</title>
-    <link rel="stylesheet" href="static/style.css">
-    <link rel="stylesheet" href="static/denmark.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Denmark-GA — iGEM 2025</title>
+    <base href="./" />
+    <link rel="stylesheet" href="static/style.css" />
+    <link rel="stylesheet" href="static/denmark.css" />
   </head>
   <body>
+    <div id="scroll-progress"></div>
     <div id="nav"></div>
 
-    <main class="container">
-      <header class="hero">
-        <h1>Denmark-GA</h1>
-        <p class="lead">Project wiki — content coming soon. This site uses placeholder text and image buttons until your team supplies final assets and copy.</p>
-      </header>
+    <main>
+      <!-- Hero -->
+      <section class="home-hero">
+        <div class="container">
+          <h1>Denmark-GA</h1>
+          <p class="tagline">
+            iGEM 2025 — Our project wiki is under construction.
+            Explore the sections below and check back as content is added.
+          </p>
+        </div>
+      </section>
 
-      <section class="grid buttons">
-        <a class="tile" href="pages/project.html" aria-label="Project"><img src="static/buttons/placeholder.svg" alt="Project button"><span>Project</span></a>
-        <a class="tile" href="pages/team.html" aria-label="Team"><img src="static/buttons/placeholder.svg" alt="Team button"><span>Team</span></a>
-        <a class="tile" href="pages/parts.html" aria-label="Parts"><img src="static/buttons/placeholder.svg" alt="Parts button"><span>Parts</span></a>
-        <a class="tile" href="pages/protocols.html" aria-label="Protocols"><img src="static/buttons/placeholder.svg" alt="Protocols button"><span>Protocols</span></a>
-        <a class="tile" href="pages/notebook.html" aria-label="Notebook"><img src="static/buttons/placeholder.svg" alt="Notebook button"><span>Notebook</span></a>
-        <a class="tile" href="pages/safety.html" aria-label="Safety"><img src="static/buttons/placeholder.svg" alt="Safety button"><span>Safety</span></a>
-        <a class="tile" href="pages/attributions.html" aria-label="Attributions"><img src="static/buttons/placeholder.svg" alt="Attributions button"><span>Attributions</span></a>
+      <!-- Image button grid -->
+      <section class="button-grid-section">
+        <div class="container">
+          <div class="button-grid">
+
+            <a class="btn-tile" href="pages/project.html" aria-label="Project">
+              <img src="static/buttons/placeholder.svg" alt="Project" />
+              <span class="sr-only">Project</span>
+            </a>
+
+            <a class="btn-tile" href="pages/wetlab.html" aria-label="Wet Lab">
+              <img src="static/buttons/placeholder.svg" alt="Wet Lab" />
+              <span class="sr-only">Wet Lab</span>
+            </a>
+
+            <a class="btn-tile" href="pages/hardware.html" aria-label="Dry Lab">
+              <img src="static/buttons/placeholder.svg" alt="Dry Lab" />
+              <span class="sr-only">Dry Lab</span>
+            </a>
+
+            <a class="btn-tile" href="pages/human-practices.html" aria-label="Human Practices">
+              <img src="static/buttons/placeholder.svg" alt="Human Practices" />
+              <span class="sr-only">Human Practices</span>
+            </a>
+
+            <a class="btn-tile" href="pages/team.html" aria-label="Team">
+              <img src="static/buttons/placeholder.svg" alt="Team" />
+              <span class="sr-only">Team</span>
+            </a>
+
+          </div>
+        </div>
       </section>
     </main>
 
     <div id="footer"></div>
+    <a id="back-to-top" href="#" aria-label="Back to top">&#8679;</a>
     <script src="static/include.js"></script>
   </body>
 </html>

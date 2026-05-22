@@ -1,15 +1,100 @@
-<nav class="topnav">
+<nav class="topnav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
-    <a class="brand" href="/denmark-ga/wiki/index.html">Denmark-GA</a>
+    <a class="brand" href="index.html">Denmark-GA</a>
+
+    <!-- Desktop navigation -->
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="pages/project.html">Project</a>
-      <a href="pages/team.html">Team</a>
-      <a href="pages/parts.html">Parts</a>
-      <a href="pages/protocols.html">Protocols</a>
-      <a href="pages/notebook.html">Notebook</a>
-      <a href="pages/safety.html">Safety</a>
-      <a href="pages/attributions.html">Attributions</a>
+
+      <div class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+      </div>
+
+      <div class="nav-item">
+        <span class="nav-link" tabindex="0" aria-haspopup="true">Project <span class="caret">&#9660;</span></span>
+        <div class="dropdown" role="menu">
+          <a href="pages/project.html" role="menuitem">Description</a>
+          <a href="pages/contribution.html" role="menuitem">Contribution</a>
+          <a href="pages/engineering.html" role="menuitem">Engineering</a>
+          <a href="pages/implementation.html" role="menuitem">Implementation</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <span class="nav-link" tabindex="0" aria-haspopup="true">Wet Lab <span class="caret">&#9660;</span></span>
+        <div class="dropdown" role="menu">
+          <a href="pages/wetlab.html" role="menuitem">Experiments</a>
+          <a href="pages/parts.html" role="menuitem">Parts</a>
+          <a href="pages/protocols.html" role="menuitem">Protocols</a>
+          <a href="pages/notebook.html" role="menuitem">Notebook</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <span class="nav-link" tabindex="0" aria-haspopup="true">Dry Lab <span class="caret">&#9660;</span></span>
+        <div class="dropdown" role="menu">
+          <a href="pages/hardware.html" role="menuitem">Hardware</a>
+          <a href="pages/software.html" role="menuitem">Software</a>
+          <a href="pages/model.html" role="menuitem">Model</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <span class="nav-link" tabindex="0" aria-haspopup="true">Human Practices <span class="caret">&#9660;</span></span>
+        <div class="dropdown" role="menu">
+          <a href="pages/human-practices.html" role="menuitem">iHP</a>
+          <a href="pages/education.html" role="menuitem">Education</a>
+          <a href="pages/entrepreneurship.html" role="menuitem">Entrepreneurship</a>
+          <a href="pages/safety.html" role="menuitem">Safety</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <span class="nav-link" tabindex="0" aria-haspopup="true">Team <span class="caret">&#9660;</span></span>
+        <div class="dropdown" role="menu">
+          <a href="pages/team.html" role="menuitem">Roster</a>
+          <a href="pages/attributions.html" role="menuitem">Attributions</a>
+        </div>
+      </div>
+
     </div>
+
+    <!-- Hamburger button -->
+    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a class="mobile-home" href="index.html">Home</a>
+
+    <div class="mobile-section">Project</div>
+    <a href="pages/project.html">Description</a>
+    <a href="pages/contribution.html">Contribution</a>
+    <a href="pages/engineering.html">Engineering</a>
+    <a href="pages/implementation.html">Implementation</a>
+
+    <div class="mobile-section">Wet Lab</div>
+    <a href="pages/wetlab.html">Experiments</a>
+    <a href="pages/parts.html">Parts</a>
+    <a href="pages/protocols.html">Protocols</a>
+    <a href="pages/notebook.html">Notebook</a>
+
+    <div class="mobile-section">Dry Lab</div>
+    <a href="pages/hardware.html">Hardware</a>
+    <a href="pages/software.html">Software</a>
+    <a href="pages/model.html">Model</a>
+
+    <div class="mobile-section">Human Practices</div>
+    <a href="pages/human-practices.html">iHP</a>
+    <a href="pages/education.html">Education</a>
+    <a href="pages/entrepreneurship.html">Entrepreneurship</a>
+    <a href="pages/safety.html">Safety</a>
+
+    <div class="mobile-section">Team</div>
+    <a href="pages/team.html">Roster</a>
+    <a href="pages/attributions.html">Attributions</a>
   </div>
 </nav>

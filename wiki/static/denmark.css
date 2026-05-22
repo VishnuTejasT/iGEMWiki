@@ -1,41 +1,43 @@
-/* Denmark-GA branding (extracted from Better.pdf) */
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700&family=Noto+Serif:ital,wght@0,400;0,700&family=Poppins:wght@400;700&family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&family=Space+Mono:wght@400&display=swap');
+/* Denmark-GA branding */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Raleway:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap');
 
-:root{
-	/* Primary palette (from Better.pdf) */
-	--brand-deep: #531a0a;
-	--brand-dark: #870b0b;
-	--brand: #a82828;
-	--brand-bright: #db2b2b;
-	--brand-soft: #e38080;
+:root {
+  /* Primary palette */
+  --brand-deep:   #531a0a;
+  --brand-dark:   #870b0b;
+  --brand:        #a82828;
+  --brand-bright: #db2b2b;
+  --brand-soft:   #e38080;
 
-	/* Neutrals / backgrounds */
-	--bg-1: #f2eee7; /* light cream */
-	--bg-2: #f1efea;
-	--beige: #c9b197;
-	--muted: #8b867c;
-	--muted-2: #808080;
-	--text: #000000;
-	--white: #ffffff;
+  /* Neutrals / backgrounds */
+  --bg-1:   #f2eee7;
+  --bg-2:   #f1efea;
+  --beige:  #c9b197;
+  --muted:  #8b867c;
+  --muted-2: #808080;
+  --text:   #1a1412;
+  --white:  #ffffff;
 
-	/* Accent used by existing styles */
-	--accent: var(--brand);
+  /* Alias */
+  --accent: var(--brand);
 }
 
-/* Font stacks matching Better.pdf */
-body{font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color:var(--text)}
-h1,h2,h3,h4,h5{font-family: 'Playfair Display', 'Poppins', serif}
-code, pre, kbd, samp{font-family: 'Space Mono', monospace}
-cite, blockquote, .serif{font-family: 'Noto Serif', 'Crimson Pro', serif}
+/* Font stacks */
+body       { font-family: 'Poppins', system-ui, sans-serif; color: var(--text); }
+h1, h2, h3, h4, h5 { font-family: 'Playfair Display', 'Poppins', serif; }
+code, pre, kbd, samp { font-family: 'Space Mono', 'Courier New', monospace; }
+cite, blockquote, .serif { font-family: 'Noto Serif', 'Crimson Pro', serif; }
+.raleway  { font-family: 'Raleway', sans-serif; }
 
-/* Utility overrides to make the color tokens available to the site */
-.hero{background:var(--bg-1)}
-.tile{background:var(--white)}
-.topnav .brand{color:var(--brand-dark)}
-.site-footer{background:transparent;color:var(--muted-2)}
+/* Brand color applications */
+.topnav    { background: var(--white); }
+.brand     { color: var(--brand-dark); }
+.home-hero { background: var(--bg-1); }
+.page-hero { background: var(--bg-1); }
+.site-footer { background: var(--brand-deep); }
 
-/* Notes:
- - Fonts are loaded from Google Fonts for quick development preview.
- - If you host font files locally, replace the @import with @font-face rules pointing to your WOFF/WOFF2 files.
- - This file intentionally does NOT replace any placeholder images.
- */
+/* Inline accent helpers */
+.text-brand  { color: var(--brand); }
+.text-brand-dark { color: var(--brand-dark); }
+.bg-brand    { background: var(--brand); color: var(--white); }
+.border-brand { border-color: var(--brand); }
