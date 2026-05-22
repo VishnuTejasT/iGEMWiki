@@ -1,6 +1,6 @@
-# Denmark-GA iGEM 2025
+# Denmark-GA iGEM 2026
 
-Static wiki for the Denmark-GA iGEM 2025 team. Pages intentionally contain placeholder text and image-button placeholders until the team provides final content and designed assets.
+Static wiki for the Denmark-GA iGEM 2026 team. Pages intentionally contain placeholder text and image-button placeholders until the team provides final content and designed assets.
 
 ## Scope
 
