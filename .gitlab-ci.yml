@@ -4,12 +4,12 @@ pages:
   stage: build
   script:
     - pip install --no-cache-dir -r dependencies.txt
-    - FLASK_APP=app.py flask freeze
+    - python -c "from app import app; from flask_frozen import Freezer; Freezer(app).freeze()"
   artifacts:
     paths:
       - public
   rules:
     - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
-      when: never # No runners will run on branches other than main
+      when: never
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       when: always
