@@ -4,7 +4,8 @@ pages:
   stage: build
   script:
     - pip install --no-cache-dir -r dependencies.txt
-    - python -c "from app import app; from flask_frozen import Freezer; Freezer(app).freeze()"
+    - export FLASK_APP=app:app
+    - flask freeze
   artifacts:
     paths:
       - public
