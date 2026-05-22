@@ -1,0 +1,25 @@
+image: alpine:latest
+
+stages:
+  - build
+  - pages
+
+build_site:
+  stage: build
+  script:
+    - echo "No build step; copying wiki to public/"
+    - mkdir -p public
+    - cp -r wiki/* public/
+  artifacts:
+    paths:
+      - public
+
+pages:
+  stage: pages
+  script:
+    - echo "Deploying to GitLab Pages (public/ will be served)"
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
