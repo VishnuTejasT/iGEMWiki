@@ -50,3 +50,52 @@
     }
   });
 })();
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const scroller = document.getElementById('statistic');
+  const overlay = document.getElementById('intro-overlay');
+  
+  const targetString = "11,280,000";
+  const chars = "0123456789"; 
+  
+  // 1. Show "ERROR: 00000000" statically for 2 seconds
+  setTimeout(() => {
+    let iterations = 0;
+    
+    // Instantly switch to digits format to start the transition count
+    scroller.innerText = "00,000,000"; 
+    
+    const interval = setInterval(() => {
+      const scrambled = targetString.split("")
+        .map((letter, index) => {
+          if (letter === ",") return ",";
+          if (index < iterations) return targetString[index];
+          return chars[Math.floor(Math.random() * chars.length)];
+        })
+        .join("");
+      
+      scroller.innerText = scrambled;
+      
+      if (iterations >= targetString.length) {
+        clearInterval(interval);
+        scroller.innerText = targetString; // Lock target number securely
+        
+        // 2. Wait 2 seconds AFTER counter stops, then show the subtext lines
+        setTimeout(() => {
+          document.body.classList.add('show-text');
+          
+          // 3. Give them 4.5 seconds to absorb the fact before hiding the layer
+          setTimeout(() => {
+            overlay.style.opacity = '0';
+            overlay.style.visibility = 'hidden';
+          }, 7000);
+          
+        }, 2000);
+      }
+      
+      iterations += 1 / 3; 
+    }, 40);
+    
+  }, 2000); 
+});

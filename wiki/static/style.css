@@ -1,5 +1,54 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #050505;
+  font-family: 'Courier New', Courier, monospace;
+  overflow: hidden;
+}
+
+
+/* Styling for the massive number/error line */
+.error-code {
+  font-size: 5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--brand-dark);
+  margin-bottom: 20px;
+}
+
+/* Hide paragraphs initially */
+.reveal-stat {
+  margin-top: 30px;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* Fades the subtext in smoothly */
+body.show-text .reveal-stat {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.trick {
+  color: var(--muted);
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  font-family: inherit;
+}
+
+.fact-reveal {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--muted);
+}
+
 html { scroll-behavior: smooth; }
 
 body {
