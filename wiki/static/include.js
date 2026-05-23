@@ -12,6 +12,7 @@
       .catch(function () {});
   }
 
+  /* Places footer and menu on every page*/
   include('#nav', 'menu.html');
   include('#footer', 'footer.html');
 
@@ -26,7 +27,7 @@
   window.addEventListener('scroll', updateBar, { passive: true });
   updateBar();
 
-  /* ===== Back-to-top button ===== */
+  /* Back-to-top button*/
   var btt = document.getElementById('back-to-top');
   if (btt) {
     window.addEventListener('scroll', function () {
@@ -43,7 +44,7 @@
     });
   }
 
-  /* ===== Hamburger menu ===== */
+  /* Hamburger menu*/
   document.addEventListener('click', function (e) {
     var btn = e.target.closest('.hamburger');
     if (btn) {
