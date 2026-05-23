@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="static/style.css" />
     <link rel="stylesheet" href="static/denmark.css" />
   </head>
-    <!-- The Overlay (Forced to take over full screen and center contents) -->
+  <body>
+    <div id="scroll-progress"></div>
+    <div id="nav"></div>
+        <!-- The Overlay (Forced to take over full screen and center contents) -->
     <div id="intro-overlay" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #f4eee4; display: flex; justify-content: center; align-items: center; z-index: 99999;">
       <div class="terminal-box" style="text-align: center; width: 90%; max-width: 900px;">
-    <!-- The targeted statistic element -->
+        <!-- The targeted statistic element -->
         <h1 id="statistic" class="error-code">ERROR: 00000000</h1>
         <div class="reveal-stat">
           <p class="trick">Huh. You thought that was an error code didn't you?</p>
@@ -19,9 +22,6 @@
         </div>
       </div>
     </div>
-  <body>
-    <div id="scroll-progress"></div>
-    <div id="nav"></div>
     <main>
       <!-- Hero -->
       <section class="home-hero">
