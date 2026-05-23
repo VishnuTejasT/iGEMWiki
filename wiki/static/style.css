@@ -13,6 +13,32 @@ body {
 }
 
 
+/* ===== Intro animation overlay ===== */
+#intro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f4eee4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#intro-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.terminal-box {
+  text-align: center;
+  width: 90%;
+  max-width: 900px;
+}
+
 /* Styling for the massive number/error line */
 .error-code {
   font-size: 5rem;

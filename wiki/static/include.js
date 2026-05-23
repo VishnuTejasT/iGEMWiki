@@ -52,9 +52,10 @@
 })();
 
 
-window.addEventListener('DOMContentLoaded', () => {
+function initIntroAnimation() {
   const scroller = document.getElementById('statistic');
   const overlay = document.getElementById('intro-overlay');
+  if (!scroller || !overlay) return;
   
   const targetString = "11,280,000";
   const chars = "0123456789"; 
@@ -87,15 +88,20 @@ window.addEventListener('DOMContentLoaded', () => {
           
           // 3. Give them 4.5 seconds to absorb the fact before hiding the layer
           setTimeout(() => {
-            overlay.style.opacity = '0';
-            overlay.style.visibility = 'hidden';
+            overlay.classList.add('hidden');
           }, 7000);
-          
+
         }, 2000);
       }
-      
-      iterations += 1 / 3; 
+
+      iterations += 1 / 3;
     }, 40);
-    
-  }, 2000); 
-});
+
+  }, 2000);
+}
+
+if (document.readyState === 'loading') {
+  window.addEventListener('DOMContentLoaded', initIntroAnimation);
+} else {
+  initIntroAnimation();
+}
