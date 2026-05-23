@@ -1,18 +1,14 @@
 (function () {
-  /* Determine if this page is inside pages/ so we fetch from the right path */
-  var inPages = window.location.href.indexOf('/pages/') !== -1;
-  var base = inPages ? '../' : '';
-
   function include(selector, file) {
     var el = document.querySelector(selector);
     if (!el) return;
-    fetch(base + file)
-      .then(function (r) { return r.text(); })
+    fetch(file)
+      .then(function (r) { return r.ok ? r.text() : Promise.reject(r.status); })
       .then(function (html) { el.innerHTML = html; })
       .catch(function () {});
   }
 
-  /* Places footer and menu on every page*/
+  /* <base href> on each page already resolves paths to the wiki root */
   include('#nav', 'menu.html');
   include('#footer', 'footer.html');
 
