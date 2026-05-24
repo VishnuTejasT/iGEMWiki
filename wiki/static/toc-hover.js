@@ -1,7 +1,5 @@
 
- * Shows/hides the TOC panel when the user hovers or focuses into .toc-sidebar.
- * Also wires smooth-scroll on every TOC link.
- */
+
 (function () {
   var sidebar = document.querySelector('.toc-sidebar');
   var panel   = document.getElementById('toc-links');
