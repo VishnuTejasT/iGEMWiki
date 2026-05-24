@@ -102,8 +102,10 @@ function initIntroAnimation() {
   }, 3000);
 }
 
-if (document.readyState === 'loading') {
-  window.addEventListener('DOMContentLoaded', initIntroAnimation);
-} else {
-  initIntroAnimation();
+if (document.getElementById('intro-overlay')) {
+  if (document.readyState === 'loading') {
+    window.addEventListener('DOMContentLoaded', initIntroAnimation);
+  } else {
+    initIntroAnimation();
+  }
 }

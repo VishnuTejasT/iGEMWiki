@@ -89,13 +89,17 @@ body.show-text .reveal-stat {
   color: var(--muted);
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-y: auto;
+}
 
 body {
   font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   background: var(--bg-1);
   color: var(--text);
   line-height: 1.65;
+  overflow-y: auto;
 }
 
 /* Scroll Progress Bar */
