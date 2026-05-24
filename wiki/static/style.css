@@ -696,3 +696,119 @@ body {
   .btn-tile img { width: 80px; height: 80px; }
   .page-cards { grid-template-columns: 1fr; }
 }
+
+/* =====================================================
+   TOC Sidebar
+   Add <aside class="toc-sidebar"> to any page, load
+   toc-hover.js and toc-watcher.js at the bottom.
+   Mark content sections with class="toc-section" + id.
+   ===================================================== */
+
+/* Fixed tab anchored to the left viewport edge */
+.toc-sidebar {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 600;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Vertical "TOC" tab — always visible */
+.toc-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 72px;
+  background: var(--brand);
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  user-select: none;
+  transition: background 0.2s, width 0.2s;
+  flex-shrink: 0;
+}
+
+.toc-sidebar:hover .toc-handle,
+.toc-sidebar:focus-within .toc-handle {
+  background: var(--brand-dark);
+  width: 32px;
+}
+
+/* Link panel — hidden until hover/focus */
+.toc-nav {
+  position: absolute;
+  left: 28px;
+  top: 0;
+  background: var(--white);
+  border: 1.5px solid var(--beige);
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+  padding: 10px 0;
+  min-width: 170px;
+  box-shadow: 6px 4px 20px rgba(83, 26, 10, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Shown via JS class or CSS :hover/:focus-within */
+.toc-sidebar:hover .toc-nav,
+.toc-sidebar:focus-within .toc-nav,
+.toc-nav.toc-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+/* Section label at the top of the panel */
+.toc-nav-heading {
+  padding: 4px 14px 8px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--beige);
+  border-bottom: 1px solid var(--bg-2);
+  margin-bottom: 4px;
+}
+
+/* Individual links */
+.toc-nav a {
+  display: block;
+  padding: 7px 14px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s, padding-left 0.15s;
+}
+
+.toc-nav a:hover {
+  color: var(--brand);
+  padding-left: 18px;
+}
+
+/* Active section link */
+.toc-nav a.toc-active {
+  color: var(--brand-dark);
+  border-left-color: var(--brand);
+  font-weight: 700;
+  padding-left: 18px;
+}
+
+/* Hide on small screens where fixed overlays hurt usability */
+@media (max-width: 768px) {
+  .toc-sidebar { display: none; }
+}
