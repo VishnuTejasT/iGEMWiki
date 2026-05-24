@@ -57,7 +57,9 @@ function initIntroAnimation() {
   const statNumber = document.getElementById('stat-number');
   const overlay = document.getElementById('intro-overlay');
   if (!errorPrefix || !statNumber || !overlay) return;
-  
+
+  document.body.style.overflow = 'hidden';
+
   const targetNumber = 11280000;
   const targetString = "11,280,000";
   const digitCount = String(targetNumber).length;
@@ -85,6 +87,7 @@ function initIntroAnimation() {
         
           setTimeout(() => {
             overlay.classList.add('hidden');
+            document.body.style.overflow = '';
           }, 7000);
 
         }, 2500);
