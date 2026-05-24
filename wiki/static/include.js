@@ -53,38 +53,33 @@
 
 
 function initIntroAnimation() {
-  const scroller = document.getElementById('statistic');
   const errorPrefix = document.getElementById('error-prefix');
   const statNumber = document.getElementById('stat-number');
   const overlay = document.getElementById('intro-overlay');
-  if (!scroller || !errorPrefix || !statNumber || !overlay) return;
+  if (!errorPrefix || !statNumber || !overlay) return;
   
+  const targetNumber = 11280000;
   const targetString = "11,280,000";
-  const chars = "0123456789"; 
+  const digitCount = String(targetNumber).length;
   
-  
+  function formatStatNumber(value) {
+    const digits = String(Math.round(value)).padStart(digitCount, '0');
+    return digits.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
   statNumber.innerText = "00,000,000";
 
   setTimeout(() => {
-    let iterations = 0;
+    let currentNumber = 0;
     
-    const interval = setInterval(() => {
-      const scrambled = targetString.split("")
-        .map((letter, index) => {
-          if (letter === ",") return ",";
-          if (index < iterations) return targetString[index];
-          return chars[Math.floor(Math.random() * chars.length)];
-        })
-        .join("");
+    function updateNumber() {
+      currentNumber += (targetNumber - currentNumber) * 0.07;
+      statNumber.innerText = formatStatNumber(currentNumber);
       
-      statNumber.innerText = scrambled;
-      
-      if (iterations >= targetString.length) {
-        clearInterval(interval);
-        statNumber.innerText = targetString; // Lock target number securely
+      if (Math.abs(targetNumber - currentNumber) < 1) {
+        statNumber.innerText = targetString;
         errorPrefix.classList.add('fade-out');
         
-
         setTimeout(() => {
           document.body.classList.add('show-text');
         
@@ -92,13 +87,16 @@ function initIntroAnimation() {
             overlay.classList.add('hidden');
           }, 7000);
 
-        }, 2000);
+        }, 2500);
+        return;
       }
 
-      iterations += 1 / 3;
-    }, 40);
+      requestAnimationFrame(updateNumber);
+    }
 
-  }, 2000);
+    requestAnimationFrame(updateNumber);
+
+  }, 3000);
 }
 
 if (document.readyState === 'loading') {
