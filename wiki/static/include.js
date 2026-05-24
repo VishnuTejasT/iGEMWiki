@@ -54,18 +54,19 @@
 
 function initIntroAnimation() {
   const scroller = document.getElementById('statistic');
+  const errorPrefix = document.getElementById('error-prefix');
+  const statNumber = document.getElementById('stat-number');
   const overlay = document.getElementById('intro-overlay');
-  if (!scroller || !overlay) return;
+  if (!scroller || !errorPrefix || !statNumber || !overlay) return;
   
   const targetString = "11,280,000";
   const chars = "0123456789"; 
   
-  // 1. Show "ERROR: 00000000" statically for 2 seconds
+  // 1. Keep "ERROR:" visible while the number starts scrambling.
+  statNumber.innerText = "00,000,000";
+
   setTimeout(() => {
     let iterations = 0;
-    
-    // Instantly switch to digits format to start the transition count
-    scroller.innerText = "00,000,000"; 
     
     const interval = setInterval(() => {
       const scrambled = targetString.split("")
@@ -76,13 +77,14 @@ function initIntroAnimation() {
         })
         .join("");
       
-      scroller.innerText = scrambled;
+      statNumber.innerText = scrambled;
       
       if (iterations >= targetString.length) {
         clearInterval(interval);
-        scroller.innerText = targetString; // Lock target number securely
+        statNumber.innerText = targetString; // Lock target number securely
+        errorPrefix.classList.add('fade-out');
         
-        // 2. Wait 2 seconds AFTER counter stops, then show the subtext lines
+        // 2. Wait 2 seconds AFTER counter stops, then show the subtext lines.
         setTimeout(() => {
           document.body.classList.add('show-text');
           

@@ -39,13 +39,28 @@ body {
   max-width: 900px;
 }
 
-/* Styling for the massive number/error line */
 .error-code {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
   font-size: 5rem;
   font-weight: 900;
   letter-spacing: 2px;
   color: var(--brand-dark);
   margin-bottom: 20px;
+}
+
+#error-prefix {
+  display: inline-block;
+  overflow: hidden;
+  max-width: 20ch;
+  white-space: nowrap;
+  vertical-align: baseline;
+  transition: opacity 0.8s ease 0s, max-width 1.5s ease 0.8s;
+}
+#error-prefix.fade-out {
+  opacity: 0;
+  max-width: 0;
 }
 
 /* Hide paragraphs initially */
