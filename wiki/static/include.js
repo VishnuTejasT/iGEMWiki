@@ -62,7 +62,7 @@ function initIntroAnimation() {
   const targetString = "11,280,000";
   const chars = "0123456789"; 
   
-  // 1. Keep "ERROR:" visible while the number starts scrambling.
+  
   statNumber.innerText = "00,000,000";
 
   setTimeout(() => {
@@ -84,11 +84,10 @@ function initIntroAnimation() {
         statNumber.innerText = targetString; // Lock target number securely
         errorPrefix.classList.add('fade-out');
         
-        // 2. Wait 2 seconds AFTER counter stops, then show the subtext lines.
+
         setTimeout(() => {
           document.body.classList.add('show-text');
-          
-          // 3. Give them 4.5 seconds to absorb the fact before hiding the layer
+        
           setTimeout(() => {
             overlay.classList.add('hidden');
           }, 7000);
