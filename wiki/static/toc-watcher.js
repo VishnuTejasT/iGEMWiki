@@ -1,10 +1,4 @@
-/**
- * toc-watcher.js
- * Watches .toc-section elements with IntersectionObserver and marks the
- * matching TOC link as .toc-active when the section enters the reading zone.
- *
- * Links must have data-toc="<section-id>" and live inside #toc-links.
- */
+
 (function () {
   var links = document.querySelectorAll('#toc-links a[data-toc]');
   if (!links.length) return;
@@ -28,7 +22,6 @@
       });
     },
     {
-      /* Trigger when a section enters the middle 10 % of the viewport */
       rootMargin: '-15% 0px -75% 0px',
       threshold: 0,
     }
