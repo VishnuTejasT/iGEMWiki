@@ -523,10 +523,10 @@ body {
 .sponsor-track {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
   width: max-content;
-  padding: 0 28px;
-  animation: marqueeScroll 32s linear infinite;
+  padding: 0 20px;
+  animation: marqueeScroll 22s linear infinite;
   will-change: transform;
 }
 
@@ -539,32 +539,31 @@ body {
 
 .sponsor-item {
   flex-shrink: 0;
-  width: 160px;
-  height: 80px;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 10px;
+  width: 220px;
+  height: 100px;
+  background: #ffffff;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 14px;
-  transition: background 0.2s;
+  padding: 12px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.sponsor-item:hover { background: rgba(255,255,255,0.18); }
+.sponsor-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
 
 .sponsor-item img {
-  max-height: 56px;
-  max-width: 130px;
+  max-height: 72px;
+  max-width: 180px;
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.8;
   display: block;
 }
-
-.sponsor-item img:hover { opacity: 1; }
 
 /* Placeholder sponsor tile (shown until real logos are added) */
 .sponsor-ph {
