@@ -1,5 +1,5 @@
 /* Denmark-GA branding */
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Raleway:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Raleway:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
   /* Primary colors */
@@ -22,12 +22,12 @@
   --accent: var(--brand);
 }
 
-/* Font stacks */
-body       { font-family: 'Poppins', system-ui, sans-serif; color: var(--text); }
-h1, h2, h3, h4, h5 { font-family: 'Playfair Display', 'Poppins', serif; }
+/* Font stacks — based on brand guide */
+body { font-family: 'Crimson Pro', Georgia, serif; color: var(--text); }
+h1 { font-family: 'Playfair Display', Georgia, serif; }
+h2 { font-family: 'Noto Serif', Georgia, serif; }
+h3, h4, h5 { font-family: 'Raleway', system-ui, sans-serif; }
 code, pre, kbd, samp { font-family: 'Space Mono', 'Courier New', monospace; }
-cite, blockquote, .serif { font-family: 'Noto Serif', 'Crimson Pro', serif; }
-.raleway  { font-family: 'Raleway', sans-serif; }
 
 /* Brand color applications */
 .topnav    { background: var(--white); }
