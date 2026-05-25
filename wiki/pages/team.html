@@ -8,6 +8,66 @@
     <link rel="stylesheet" href="static/style.css" />
     <link rel="stylesheet" href="static/denmark.css" />
     <style>
+      /* Grid and card layout to match provided design */
+      .students-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.25rem;
+        align-items: start;
+      }
+
+      .student-card {
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid rgba(0,0,0,0.06);
+        box-shadow: 0 2px 0 rgba(0,0,0,0.03), 0 8px 18px rgba(0,0,0,0.04);
+        transition: transform 150ms ease, box-shadow 150ms ease;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .student-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      }
+
+      .student-image {
+        height: 160px;
+        background: #f7f3ee;
+        display: block;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .student-image img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .student-card h4 {
+        margin: 0.6rem 0 0 0.75rem;
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: #0b0b0b;
+      }
+
+      .student-role {
+        margin: 0.2rem 0 0.9rem 0.75rem;
+        font-size: 0.82rem;
+        color: #5d5d5d;
+      }
+
+      /* keep bio text hidden on page; shown in modal */
+      .student-bio {
+        display: none;
+      }
+
+      /* Modal styles */
       .bio-modal {
         display: none;
         position: fixed;
@@ -22,70 +82,39 @@
         padding: 1rem;
       }
 
-      .bio-modal.active {
-        display: flex;
-      }
+      .bio-modal.active { display: flex; }
 
       .bio-modal-content {
         background: white;
-        padding: 2rem;
-        border-radius: 8px;
-        max-width: 500px;
+        padding: 1.5rem 1.75rem;
+        border-radius: 10px;
+        max-width: 520px;
         width: 100%;
         position: relative;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        animation: slideIn 0.3s ease-out;
+        box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+        animation: slideIn 260ms ease-out;
       }
 
       @keyframes slideIn {
-        from {
-          transform: translateY(-50px);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
+        from { transform: translateY(-20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
       }
 
       .bio-modal-close {
         position: absolute;
-        top: 1rem;
-        right: 1rem;
+        top: 0.6rem;
+        right: 0.6rem;
         background: none;
         border: none;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         cursor: pointer;
         color: #666;
       }
 
-      .bio-modal-close:hover {
-        color: #333;
-      }
+      .bio-modal-close:hover { color: #333; }
 
-      .student-card {
-        cursor: pointer;
-      }
-
-      .student-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 20px rgba(44, 123, 2, 0.2);
-      }
-
-      .student-bio {
-        display: none;
-      }
-
-      .bio-modal h3 {
-        margin-top: 0;
-        color: #333;
-      }
-
-      .bio-modal p {
-        color: #666;
-        line-height: 1.6;
-        margin: 0;
-      }
+      .bio-modal h3 { margin: 0 0 0.5rem 0; color: #222; }
+      .bio-modal p { margin: 0; color: #444; line-height: 1.6; }
     </style>
   </head>
   <body>
