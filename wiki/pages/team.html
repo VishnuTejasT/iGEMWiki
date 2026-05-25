@@ -7,6 +7,86 @@
     <base href="../" />
     <link rel="stylesheet" href="static/style.css" />
     <link rel="stylesheet" href="static/denmark.css" />
+    <style>
+      .bio-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+      }
+
+      .bio-modal.active {
+        display: flex;
+      }
+
+      .bio-modal-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        max-width: 500px;
+        width: 100%;
+        position: relative;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        animation: slideIn 0.3s ease-out;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateY(-50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .bio-modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #666;
+      }
+
+      .bio-modal-close:hover {
+        color: #333;
+      }
+
+      .student-card {
+        cursor: pointer;
+      }
+
+      .student-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(44, 123, 2, 0.2);
+      }
+
+      .student-bio {
+        display: none;
+      }
+
+      .bio-modal h3 {
+        margin-top: 0;
+        color: #333;
+      }
+
+      .bio-modal p {
+        color: #666;
+        line-height: 1.6;
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
     <div id="scroll-progress"></div>
@@ -37,12 +117,129 @@
 
           <section class="wiki-section toc-section" id="students">
             <h3>Student Members</h3>
-            <div class="placeholder-block">
-              <span class="placeholder-label">Placeholder</span>
-              <p>
-                Add team member profiles here. For each member include: name, role,
-                school/department, a short bio, and a photo.
-              </p>
+            <div class="students-grid">
+    
+              <div class="student-card" data-student-name="Riya Gupta" data-student-bio="Short bio goes here.">
+                <div class="student-image">Student Picture</div>
+                <h4>Riya Gupta</h4>
+                <p class="student-role">Senior Advisor</p>
+              </div>
+
+              <div class="student-card" data-student-name="Aarav Arora" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Aarav Arora</h4>
+                <p class="student-role">Senior Advisor</p>
+              </div>
+
+              <div class="student-card" data-student-name="Chelsea Alonzo-Francis" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Chelsea Alonzo-Francis</h4>
+                <p class="student-role">Senior Captain</p>
+              </div>
+
+              <div class="student-card" data-student-name="Vishnu Tadipatri" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Vishnu Tadipatri</h4>
+                <p class="student-role">Junior Captain</p>
+              </div>
+              
+              <div class="student-card" data-student-name="Siana Biju" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Siana Biju</h4>
+                <p class="student-role">Team Manager</p>
+              </div>              
+
+              <div class="student-card" data-student-name="Purandhar Ram Choppa" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Purandhar Ram Choppa</h4>
+                <p class="student-role">Dry Lab Lead</p>
+              </div>
+
+              <div class="student-card" data-student-name="Navina Welliwita" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Navina Welliwita</h4>
+                <p class="student-role">Member</p>
+              </div>
+
+              <div class="student-card" data-student-name="Atharva Somyajula" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Atharva Somyajula</h4>
+                <p class="student-role">Member</p>
+              </div>
+
+              <div class="student-card" data-student-name="Ranvi Devarasetty" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Ranvi Devarasetty</h4>
+                <p class="student-role">Member</p>
+              </div>
+
+              <div class="student-card" data-student-name="Sahana Ramiya" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Sahana Ramiya</h4>
+                <p class="student-role">Member</p>
+              </div>
+
+              <div class="student-card" data-student-name="Evan James" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Evan James</h4>
+                <p class="student-role">Member</p>
+              </div>
+
+              <div class="student-card" data-student-name="Sreyas Sangem" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Sreyas Sangem</h4>
+                <p class="student-role">Special Prize Lead</p>
+              </div>
+
+              <div class="student-card" data-student-name="Tejas Singh Sumith" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Tejas Singh Sumith</h4>
+                <p class="student-role">Member</p>
+              </div>
+
+              <div class="student-card" data-student-name="Avik Gupta" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Avik Gupta</h4>
+                <p class="student-role">Plasmid Design Lead</p>
+              </div>
+
+              <div class="student-card" data-student-name="Parth Shah" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Parth Shah</h4>
+                <p class="student-role">Experimental Design Lead</p>
+              </div>
+
+              <div class="student-card" data-student-name="Adhvika Singh" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Adhvika Singh</h4>
+                <p class="student-role">Member</p>
+              </div>
+
+              <div class="student-card" data-student-name="Eva Pothukoochi" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Eva Pothukoochi</h4>
+                <p class="student-role">Member</p>
+              </div>
+
+              <div class="student-card" data-student-name="Keerthi Atmakuri" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Keerthi Atmakuri</h4>
+                <p class="student-role">Member</p>
+              </div>
+
+              <div class="student-card" data-student-name="Aarya Thakkar" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Aarya Thakkar</h4>
+                <p class="student-role">Human Practices Lead</p>
+              </div>
+
+              <div class="student-card" data-student-name="Nishna Chippa" data-student-bio="Short bio goes here.">
+                <div class="student-image"></div>
+                <h4>Nishna Chippa</h4>
+                <p class="student-role">Member</p>
+              </div>
+
+
             </div>
           </section>
 
@@ -77,5 +274,53 @@
     <script src="static/include.js"></script>
     <script src="static/toc-hover.js"></script>
     <script src="static/toc-watcher.js"></script>
+
+    <!-- Bio Modal -->
+    <div id="bio-modal" class="bio-modal">
+      <div class="bio-modal-content">
+        <button class="bio-modal-close" aria-label="Close bio">&times;</button>
+        <h3 id="bio-modal-name"></h3>
+        <p id="bio-modal-text"></p>
+      </div>
+    </div>
+
+    <script>
+      // Bio modal functionality
+      const bioModal = document.getElementById('bio-modal');
+      const bioModalName = document.getElementById('bio-modal-name');
+      const bioModalText = document.getElementById('bio-modal-text');
+      const closeBtn = document.querySelector('.bio-modal-close');
+
+      // Open modal when student card is clicked
+      document.querySelectorAll('.student-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const name = card.getAttribute('data-student-name');
+          const bio = card.getAttribute('data-student-bio');
+          bioModalName.textContent = name;
+          bioModalText.textContent = bio;
+          bioModal.classList.add('active');
+        });
+      });
+
+      // Close modal when X is clicked
+      closeBtn.addEventListener('click', () => {
+        bioModal.classList.remove('active');
+      });
+
+      // Close modal when clicking outside the content
+      bioModal.addEventListener('click', (e) => {
+        if (e.target === bioModal) {
+          bioModal.classList.remove('active');
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          bioModal.classList.remove('active');
+        }
+      });
+    </script>
+
   </body>
 </html>
