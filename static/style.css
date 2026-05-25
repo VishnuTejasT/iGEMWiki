@@ -11,12 +11,11 @@ body {
   font-family: 'Courier New', Courier, monospace;
 }
 
-team-logo {
+.team-logo {
   width: 50%;
   height: auto;
   display: block;
   margin: 0 auto;
-  image-
 }
 
 /* ===== Intro animation overlay ===== */
