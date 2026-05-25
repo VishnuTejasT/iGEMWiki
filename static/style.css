@@ -829,3 +829,168 @@ body {
 @media (max-width: 768px) {
   .toc-sidebar { display: none; }
 }
+
+/* ===== Team roster cards ===== */
+.students-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .students-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .students-grid { grid-template-columns: 1fr; }
+}
+
+.student-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.03), 0 8px 18px rgba(0,0,0,0.04);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.student-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.student-image {
+  height: 200px;
+  background: #ede9e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  color: transparent;
+  font-size: 0;
+}
+
+.student-image::before {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #c9b197;
+  opacity: 0.55;
+}
+
+.student-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.student-card h4 {
+  margin: 0.6rem 0 0 0.75rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0b0b0b;
+}
+
+.student-role {
+  margin: 0.2rem 0 0.9rem 0.75rem;
+  font-size: 0.82rem;
+  color: #5d5d5d;
+}
+
+.student-bio { display: none; }
+
+/* Bio modal */
+.bio-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.bio-modal.active { display: flex; }
+
+.bio-modal-content {
+  background: white;
+  padding: 1.5rem 1.75rem;
+  border-radius: 10px;
+  max-width: 520px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  animation: slideIn 260ms ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+.bio-modal-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.bio-modal-close:hover { color: #333; }
+
+.bio-modal h3 { margin: 0 0 0.25rem 0; color: #222; text-align: center; }
+.bio-modal p  { margin: 0; color: #444; line-height: 1.6; }
+
+.bio-modal-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 1rem;
+  background: #ede9e2;
+}
+
+.bio-modal-placeholder {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #ede9e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.bio-modal-placeholder::after {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #c9b197;
+  opacity: 0.6;
+  display: block;
+}
+
+.bio-modal-role {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.85rem;
+  color: var(--brand-dark, #870b0b);
+  font-weight: 600;
+  text-align: center;
+}
+}
