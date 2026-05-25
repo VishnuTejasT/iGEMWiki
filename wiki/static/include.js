@@ -1,3 +1,5 @@
+
+//Menu Bar and Footer inclusion, scroll progress bar, back-to-top button, and hamburger menu functionality
 (function () {
   function include(selector, file) {
     var el = document.querySelector(selector);
@@ -52,6 +54,7 @@
 })();
 
 
+//Intro animation
 function initIntroAnimation() {
   const errorPrefix = document.getElementById('error-prefix');
   const statNumber = document.getElementById('stat-number');
@@ -73,24 +76,24 @@ function initIntroAnimation() {
 
   setTimeout(() => {
     let currentNumber = 0;
-    
+
     function updateNumber() {
-      currentNumber += (targetNumber - currentNumber) * 0.07;
+      currentNumber += (targetNumber - currentNumber) * 0.11;
       statNumber.innerText = formatStatNumber(currentNumber);
-      
+
       if (Math.abs(targetNumber - currentNumber) < 1) {
         statNumber.innerText = targetString;
         errorPrefix.classList.add('fade-out');
-        
+
         setTimeout(() => {
           document.body.classList.add('show-text');
-        
+
           setTimeout(() => {
             overlay.classList.add('hidden');
             document.body.style.overflow = '';
-          }, 7000);
+          }, 4000);
 
-        }, 2500);
+        }, 1500);
         return;
       }
 
@@ -99,7 +102,7 @@ function initIntroAnimation() {
 
     requestAnimationFrame(updateNumber);
 
-  }, 3000);
+  }, 1200);
 }
 
 if (document.getElementById('intro-overlay')) {
