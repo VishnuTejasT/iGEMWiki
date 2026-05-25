@@ -37,7 +37,7 @@
 
           <section class="wiki-section toc-section" id="students">
             <h3>Student Members</h3>
-            <div class="students-grid">
+            <div class="people-grid">
     
               <div class="student-card" data-student-name="Riya Gupta" data-student-bio="Short bio goes here.">
                 <div class="student-image"></div>
@@ -164,13 +164,21 @@
           </section>
 
           <section class="wiki-section toc-section" id="advisors">
-            <h3>Instructors &amp; Advisors</h3>
-            <div class="placeholder-block">
-              <span class="placeholder-label">Placeholder</span>
-              <p>
-                List faculty advisors, instructors, and mentors who guided the project.
-                Include their institutional affiliations and areas of expertise.
-              </p>
+            <h3>Advisors</h3>
+            <div class="people-grid">
+
+              <div class="adv-card" data-adv-name="Mary Cartenuto" data-adv-bio="Short bio goes here.">
+                <div class="adv-image"></div>
+                <h4>Mary Cartenuto</h4>
+                <p class="adv-role">Primary Investigator</p>
+              </div>
+
+              <div class="adv-card" data-adv-name="Shelby Cochran" data-adv-bio="Short bio goes here.">
+                <div class="adv-image"></div>
+                <h4>Shelby Cochran</h4>
+                <p class="adv-role">Advisor</p>
+              </div>
+
             </div>
           </section>
 
@@ -207,7 +215,6 @@
     </div>
 
     <script>
-      // Bio modal functionality
       const bioModal = document.getElementById('bio-modal');
       const bioModalName = document.getElementById('bio-modal-name');
       const bioModalRole = document.getElementById('bio-modal-role');
@@ -215,53 +222,46 @@
       const bioModalPhotoWrap = document.getElementById('bio-modal-photo-wrap');
       const closeBtn = document.querySelector('.bio-modal-close');
 
-      // Open modal when student card is clicked
+      function openModal(name, role, bio, imgEl) {
+        bioModalName.textContent = name || '';
+        bioModalRole.textContent = role || '';
+        bioModalText.textContent = bio || '';
+        bioModalPhotoWrap.innerHTML = '';
+        if (imgEl && imgEl.src) {
+          const photo = document.createElement('img');
+          photo.src = imgEl.src;
+          photo.alt = name;
+          photo.className = 'bio-modal-photo';
+          bioModalPhotoWrap.appendChild(photo);
+        } else {
+          const placeholder = document.createElement('div');
+          placeholder.className = 'bio-modal-placeholder';
+          bioModalPhotoWrap.appendChild(placeholder);
+        }
+        bioModal.classList.add('active');
+      }
+
       document.querySelectorAll('.student-card').forEach(card => {
-        card.addEventListener('click', () => {
-          const name = card.getAttribute('data-student-name');
-          const bio = card.getAttribute('data-student-bio');
-          const role = card.querySelector('.student-role');
-          const img = card.querySelector('.student-image img');
-
-          bioModalName.textContent = name;
-          bioModalRole.textContent = role ? role.textContent : '';
-          bioModalText.textContent = bio;
-
-          bioModalPhotoWrap.innerHTML = '';
-          if (img && img.src) {
-            const photo = document.createElement('img');
-            photo.src = img.src;
-            photo.alt = name;
-            photo.className = 'bio-modal-photo';
-            bioModalPhotoWrap.appendChild(photo);
-          } else {
-            const placeholder = document.createElement('div');
-            placeholder.className = 'bio-modal-placeholder';
-            bioModalPhotoWrap.appendChild(placeholder);
-          }
-
-          bioModal.classList.add('active');
-        });
+        card.addEventListener('click', () => openModal(
+          card.getAttribute('data-student-name'),
+          card.querySelector('.student-role')?.textContent,
+          card.getAttribute('data-student-bio'),
+          card.querySelector('.student-image img')
+        ));
       });
 
-      // Close modal when X is clicked
-      closeBtn.addEventListener('click', () => {
-        bioModal.classList.remove('active');
+      document.querySelectorAll('.adv-card').forEach(card => {
+        card.addEventListener('click', () => openModal(
+          card.getAttribute('data-adv-name'),
+          card.querySelector('.adv-role')?.textContent,
+          card.getAttribute('data-adv-bio'),
+          card.querySelector('.adv-image img')
+        ));
       });
 
-      // Close modal when clicking outside the content
-      bioModal.addEventListener('click', (e) => {
-        if (e.target === bioModal) {
-          bioModal.classList.remove('active');
-        }
-      });
-
-      // Close modal with Escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          bioModal.classList.remove('active');
-        }
-      });
+      closeBtn.addEventListener('click', () => bioModal.classList.remove('active'));
+      bioModal.addEventListener('click', e => { if (e.target === bioModal) bioModal.classList.remove('active'); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') bioModal.classList.remove('active'); });
     </script>
 
   </body>
