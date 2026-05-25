@@ -133,8 +133,49 @@
 
       .bio-modal-close:hover { color: #333; }
 
-      .bio-modal h3 { margin: 0 0 0.5rem 0; color: #222; }
+      .bio-modal h3 { margin: 0 0 0.25rem 0; color: #222; }
       .bio-modal p { margin: 0; color: #444; line-height: 1.6; }
+
+      .bio-modal-photo {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto 1rem;
+        background: #ede9e2;
+      }
+
+      .bio-modal-placeholder {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: #ede9e2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+      }
+
+      .bio-modal-placeholder::after {
+        content: '';
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #c9b197;
+        opacity: 0.6;
+        display: block;
+      }
+
+      .bio-modal-role {
+        margin: 0 0 0.75rem 0;
+        font-size: 0.85rem;
+        color: var(--brand-dark, #870b0b);
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .bio-modal h3 { text-align: center; }
     </style>
   </head>
   <body>
@@ -328,7 +369,9 @@
     <div id="bio-modal" class="bio-modal">
       <div class="bio-modal-content">
         <button class="bio-modal-close" aria-label="Close bio">&times;</button>
+        <div id="bio-modal-photo-wrap"></div>
         <h3 id="bio-modal-name"></h3>
+        <p id="bio-modal-role" class="bio-modal-role"></p>
         <p id="bio-modal-text"></p>
       </div>
     </div>
@@ -337,7 +380,9 @@
       // Bio modal functionality
       const bioModal = document.getElementById('bio-modal');
       const bioModalName = document.getElementById('bio-modal-name');
+      const bioModalRole = document.getElementById('bio-modal-role');
       const bioModalText = document.getElementById('bio-modal-text');
+      const bioModalPhotoWrap = document.getElementById('bio-modal-photo-wrap');
       const closeBtn = document.querySelector('.bio-modal-close');
 
       // Open modal when student card is clicked
@@ -345,8 +390,26 @@
         card.addEventListener('click', () => {
           const name = card.getAttribute('data-student-name');
           const bio = card.getAttribute('data-student-bio');
+          const role = card.querySelector('.student-role');
+          const img = card.querySelector('.student-image img');
+
           bioModalName.textContent = name;
+          bioModalRole.textContent = role ? role.textContent : '';
           bioModalText.textContent = bio;
+
+          bioModalPhotoWrap.innerHTML = '';
+          if (img && img.src) {
+            const photo = document.createElement('img');
+            photo.src = img.src;
+            photo.alt = name;
+            photo.className = 'bio-modal-photo';
+            bioModalPhotoWrap.appendChild(photo);
+          } else {
+            const placeholder = document.createElement('div');
+            placeholder.className = 'bio-modal-placeholder';
+            bioModalPhotoWrap.appendChild(placeholder);
+          }
+
           bioModal.classList.add('active');
         });
       });
