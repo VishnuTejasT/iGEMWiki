@@ -3,9 +3,7 @@ image: alpine:latest
 pages:
   stage: build
   script:
-    - mkdir -p public/static
     - cp -a wiki/. public/
-    - cp -a static/. public/static/
     - test -f public/index.html
   artifacts:
     paths:
