@@ -135,12 +135,23 @@ body {
 /* Scroll Progress Bar */
 #scroll-progress {
   position: fixed;
-  top: 0; left: 0;
+  top: 68px; left: 0;
   width: 0%;
   height: 3px;
   background: linear-gradient(90deg, var(--brand-dark), var(--brand-bright));
   z-index: 9999;
   transition: width 0.08s linear;
+}
+
+#scroll-progress::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: url('teamLogo.png') center / contain no-repeat;
 }
 
 /*Navigation */
@@ -259,68 +270,6 @@ body {
   padding-left: 22px;
 }
 
-/* ===== Hamburger ===== */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 8px;
-  background: none;
-  border: none;
-}
-
-.hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: #3a3230;
-  border-radius: 2px;
-  transition: all 0.28s;
-}
-
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-/* ===== Mobile Nav ===== */
-.mobile-menu {
-  display: none;
-  background: var(--white);
-  border-top: 1px solid var(--beige);
-  padding: 10px 0 16px;
-  max-height: calc(100vh - 68px);
-  overflow-y: auto;
-}
-
-.mobile-menu.open { display: block; }
-
-.mobile-section {
-  padding: 14px 24px 4px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.mobile-menu a {
-  display: block;
-  padding: 9px 24px 9px 32px;
-  font-size: 0.87rem;
-  color: #3a3230;
-  text-decoration: none;
-  transition: color 0.15s;
-}
-
-.mobile-menu a:hover { color: var(--brand); }
-
-.mobile-home {
-  display: block;
-  padding: 10px 24px !important;
-  font-weight: 600;
-  font-size: 0.9rem !important;
-}
 
 /* ===== Layout ===== */
 .container {
@@ -690,9 +639,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-
   .home-hero { padding: 52px 0 44px; }
 
   .button-grid {
