@@ -34,6 +34,10 @@ code, pre, kbd, samp { font-family: 'Space Mono', 'Courier New', monospace; }
 .brand     { color: var(--brand-dark); }
 .home-hero { background: var(--bg-1); }
 .page-hero { background: var(--bg-1); }
+.page-hero-team { background-image: url('TeamPicture.png'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 575px; display: flex; align-items: flex-end; }
+.page-hero-team .container { background: rgba(0, 0, 0, 0.45); padding: 20px 28px; border-radius: 6px; margin-bottom: 16px; text-align: center; }
+.page-hero-team h2 { color: #fff; }
+.page-hero-team .summary { color: rgba(255,255,255,0.85); }
 .site-footer { background: var(--brand-deep); }
 
 /* Inline accent helpers */
