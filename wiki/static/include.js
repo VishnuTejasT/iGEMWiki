@@ -63,6 +63,15 @@ function initIntroAnimation() {
 
   document.body.style.overflow = 'hidden';
 
+  const closeBtn = document.getElementById('intro-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      overlay.style.transition = 'none';
+      overlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+  }
+
   const targetNumber = 11280000;
   const targetString = "11,280,000";
   const digitCount = String(targetNumber).length;

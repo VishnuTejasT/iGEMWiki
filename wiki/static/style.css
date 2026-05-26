@@ -61,6 +61,24 @@ body {
   visibility: hidden;
 }
 
+#intro-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--brand-dark);
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+#intro-close:hover {
+  opacity: 1;
+}
+
 .terminal-box {
   text-align: center;
   width: 90%;
@@ -968,6 +986,10 @@ body {
 
 .ment-image img[src*="Shajesh"] {
   object-position: center 5%;
+}
+
+.ment-image img[src*="Ellen"] {
+  object-position: center -30px;
 }
 
 .ment-image img[src*="Fox"] {
