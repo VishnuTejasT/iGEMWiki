@@ -34,10 +34,15 @@ code, pre, kbd, samp { font-family: 'Space Mono', 'Courier New', monospace; }
 .brand     { color: var(--brand-dark); }
 .home-hero { background: var(--bg-1); }
 .page-hero { background: var(--bg-1); }
+
+.page-hero-index { background-image: url('homePage.jpg'); background-size: contain; background-position: center top; background-repeat: no-repeat; aspect-ratio: 8362 / 5417; min-height: unset; position: relative; }
+.page-hero-index .teamName { position: absolute; top: 30%; left: 45%; max-width: 380px; width: 28%; margin: 0; background: rgba(242, 238, 231, 0.45); padding: 6px 10px; border-radius: 25px; }
+
 .page-hero-team { background-image: url('TeamPicture.png'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 575px; display: flex; align-items: flex-end; }
 .page-hero-team .container { background: rgba(0, 0, 0, 0.45); padding: 20px 28px; border-radius: 6px; margin-bottom: 16px; text-align: center; }
 .page-hero-team h2 { color: #fff; }
 .page-hero-team .summary { color: rgba(255,255,255,0.85); }
+
 .site-footer { background: var(--brand-deep); }
 
 /* Inline accent helpers */
