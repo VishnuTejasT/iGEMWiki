@@ -301,7 +301,6 @@ body {
   background: var(--bg-1);
   padding: 80px 0 64px;
   text-align: center;
-  border-bottom: 1px solid var(--beige);
 }
 
 .home-hero h1 {
@@ -323,7 +322,6 @@ body {
 /* ===== Page Hero ===== */
 .page-hero {
   background: var(--bg-1);
-  border-bottom: 2px solid var(--beige);
   padding: 52px 0 36px;
 }
 
