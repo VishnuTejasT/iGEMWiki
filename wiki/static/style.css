@@ -26,9 +26,9 @@ body {
 }
 
 .logo img {
-  height: 65px;
+  height: 10px;
   width: auto;
-  object-fit: contain;
+  object-fit: fill;
   flex-shrink: 0;
   margin-top: 15px;
 }
