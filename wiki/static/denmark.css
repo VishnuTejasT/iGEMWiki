@@ -4,10 +4,10 @@
 :root {
   /* Primary colors */
   --brand-dark:   #880909;
-  --brand-deep:   #b80e0e;
-  --brand:        #e53737;
-  --brand-bright: #db2b2b;
-  --brand-soft:   #e38080;
+  --brand-deep:   #9d0404;
+  --brand:        #c01919;
+  --brand-bright: #db2828;
+  --brand-soft:   #de3e3e;
 
   /* backgrounds */
   --bg-1:   #f2eee7;
