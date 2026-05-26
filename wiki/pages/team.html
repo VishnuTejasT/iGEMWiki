@@ -45,7 +45,7 @@
                 <p class="student-role">Senior Advisor</p>
               </div>
 
-              <div class="student-card" data-student-name="Aarav Arora" data-student-bio="Short bio goes here.">
+              <div class="student-card" data-student-name="Aarav Arora" data-student-bio="Hey everyone! I'm Aarav Arora, an incoming freshman at Georgia Tech and a first time iGEMer. Outside of iGEM I love playing table tennis, playing the piano, and hanging out with my friends. I'm looking forward to meeting people at the Grand Jamboree and seeing all the different projects there!">
                 <div class="student-image"></div>
                 <h4>Aarav Arora</h4>
                 <p class="student-role">Senior Advisor</p>
@@ -69,7 +69,7 @@
                 <p class="student-role">Team Manager</p>
               </div>              
 
-              <div class="student-card" data-student-name="Purandhar Ram Choppa" data-student-bio="Short bio goes here.">
+              <div class="student-card" data-student-name="Purandhar Ram Choppa" data-student-bio="Hey guys, I'm a junior at Denmark High School and it's my first year of iGEM. It's been a pleasure to work with the team and come up with designing software for the team and to help people throughout the world! While I'm not working on creating binders for pathogenic diseases or figuring out complex code, I love playing badminton, and watching movies with my brother. I know it's going to be an amazing time at the Jamboree and can't wait for all of us to do amazing things together.">
                 <div class="student-image"></div>
                 <h4>Purandhar Ram Choppa</h4>
                 <p class="student-role">Dry Lab Lead</p>
@@ -123,7 +123,7 @@
                 <p class="student-role">Plasmid Design Lead</p>
               </div>
 
-              <div class="student-card" data-student-name="Parth Shah" data-student-bio="Short bio goes here.">
+              <div class="student-card" data-student-name="Parth Shah" data-student-bio="Hey! I'm Parth Shah, and I’m a sophomore on Denmark iGEM. This is my first year on the team. Through Denmark iGEM, I’ve been able to explore biology in much greater depth than I could in class. Its research-based, hands-on nature, combined with the high-stakes execution involved, makes it an incredible opportunity to learn while creating something of real value. Outside of iGEM, I run track, write articles, and sleep (surprising, I know). I also love music (mainly the listening part, since I can't sing or play any instruments...) and enjoy artists like Tame Impala, Joji, James Blunt, and Radiohead. On se voit à Paris!">
                 <div class="student-image"></div>
                 <h4>Parth Shah</h4>
                 <p class="student-role">Experimental Design Lead</p>
@@ -183,13 +183,33 @@
           </section>
 
           <section class="wiki-section toc-section" id="collaborators">
-            <h3>Collaborators</h3>
-            <div class="placeholder-block">
-              <span class="placeholder-label">Placeholder</span>
-              <p>
-                Acknowledge any external collaborators, partner organizations, or
-                other iGEM teams the Denmark-GA team worked alongside.
-              </p>
+            <h3>Mentors</h3>
+            <div class="people-grid">
+
+              <div class="ment-card" data-ment-name="Dr. David Fox III" data-ment-bio="Short bio goes here.">
+                <div class="ment-image"><img src="static/Fox.jpeg" alt="Dr. David Fox III"></div>
+                <h4>Dr. David Fox III</h4>
+                <p class="ment-role">Experimental Design Mentor</p>
+              </div>
+
+              <div class="ment-card" data-ment-name="Ellen Warren" data-ment-bio="Short bio goes here.">
+                <div class="ment-image"><img src="static/Warren.jpeg" alt="Ellen Warren"></div>
+                <h4>Ellen Warren</h4>
+                <p class="ment-role">Plasmid Design Mentor</p>
+              </div>
+
+              <div class="ment-card" data-ment-name="Labeid Mehdi" data-ment-bio="Short bio goes here.">
+                <div class="ment-image"><img src="static/Mehdi.png" alt="Labeaid Mehdi"></div>
+                <h4>Labaeid Mehdi</h4>
+                <p class="ment-role">Human Practices Mentor</p>
+              </div>
+
+              <div class="ment-card" data-ment-name="Shajesh Sharma" data-ment-bio="Short bio goes here.">
+                <div class="ment-image"><img src="static/Shajesh.jpeg" alt="Shajesh Sharma"></div>
+                <h4>Shajesh Sharma</h4>
+                <p class="ment-role">Dry-Lab/Protein-Design Mentor</p>
+              </div>
+
             </div>
           </section>
 
@@ -256,6 +276,15 @@
           card.querySelector('.adv-role')?.textContent,
           card.getAttribute('data-adv-bio'),
           card.querySelector('.adv-image img')
+        ));
+      });
+
+      document.querySelectorAll('.ment-card').forEach(card => {
+        card.addEventListener('click', () => openModal(
+          card.getAttribute('data-ment-name'),
+          card.querySelector('.ment-role')?.textContent,
+          card.getAttribute('data-ment-bio'),
+          card.querySelector('.ment-image img')
         ));
       });
 
