@@ -26,7 +26,7 @@ body {
 }
 
 .logo img {
-  height: 10px;
+  height: 65px;
   width: auto;
   object-fit: fill;
   flex-shrink: 0;
