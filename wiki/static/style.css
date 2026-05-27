@@ -153,7 +153,7 @@ body {
 /* ── What is Malaria? scroll section ── */
 .whatMalaria {
   position: relative;
-  height: 400vh;
+  height: 280vh;
   overflow: hidden;
 }
 
@@ -382,6 +382,81 @@ body {
 }
 
 
+
+/* ── But... We have a solution! ── */
+.wms-wrapper {
+  position: relative;
+  height: 380vh;
+}
+
+.wms-sticky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 68px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 40px;
+}
+
+.wms-sticky.is-fixed {
+  position: fixed;
+  top: 68px;
+}
+
+.wms-who {
+  font-size: clamp(4rem, 2.8vw, 1.9rem);
+  font-weight: 700;
+  color: var(--brand-dark);
+  text-align: center;
+  letter-spacing: 0.03em;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.5s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wms-who.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.wms-line1 {
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 800;
+  color: var(--brand);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.wms-word {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.wms-word.visible { opacity: 1; }
+
+.wms-dot {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.wms-dot.visible { opacity: 1; }
+
+.wms-line2 {
+  font-size: clamp(2rem, 6vw, 5rem);
+  font-weight: 800;
+  color: var(--brand-bright);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  opacity: 0;
+  transform: scale(0.8) translateY(16px);
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.34, 1.5, 0.64, 1);
+}
+.wms-line2.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
 
 /* Scroll Progress Bar */
 #scroll-progress {
