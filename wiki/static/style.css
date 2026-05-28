@@ -742,7 +742,7 @@ body {
   height: 3px;
   background: linear-gradient(90deg, var(--brand-dark), var(--brand-bright));
   z-index: 1300;
-  transition: width 0.08s linear;
+  transition: width 0.08s linear, opacity 0.2s ease;
 }
 
 #scroll-progress::after {
@@ -757,8 +757,14 @@ body {
   width: 60px;
   height: 60px;
   background: url('mosqBar.png') center / contain no-repeat;
-  z-index: 100;
+  z-index: 1300;
   pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+body:has(.nav-item:hover .dropdown) #scroll-progress-marker,
+body:has(.nav-item:hover .dropdown) #scroll-progress {
+  opacity: 0;
 }
 
 /*Navigation */
@@ -1908,6 +1914,205 @@ body {
   text-transform: uppercase;
   color: var(--beige);
 }
+
+/* =============================================
+   Plasmodium Falciparum section
+   ============================================= */
+
+.pf-section {
+  position: relative;
+  background: var(--bg-1);
+  padding: 140px 0 120px;
+  overflow: hidden;
+}
+
+/* Floating blobs — same pattern as wm-bg / parts-bg */
+.pf-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.pf-cell {
+  position: absolute;
+  border-radius: 50%;
+}
+.pf-cell:nth-child(1) { width: 260px; height: 260px; background: var(--brand);      opacity: 0.07;  top: 4%;  left: -60px; animation: pf-drift-a 16s ease-in-out infinite; }
+.pf-cell:nth-child(2) { width: 140px; height: 160px; background: var(--beige);      opacity: 0.22;  top: 55%; right: -30px; border-radius: 60% 40% 55% 45%; animation: pf-drift-b 11s ease-in-out infinite; animation-delay: -4s; }
+.pf-cell:nth-child(3) { width: 90px;  height: 90px;  background: var(--brand-bright);opacity: 0.10;  top: 28%; right: 10%;  animation: pf-drift-a 8s ease-in-out infinite; animation-delay: -2s; }
+.pf-cell:nth-child(4) { width: 300px; height: 260px; background: var(--beige);      opacity: 0.12;  bottom: 4%; left: -40px; border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%; animation: pf-drift-c 18s ease-in-out infinite; }
+.pf-cell:nth-child(5) { width: 110px; height: 130px; background: var(--brand-dark); opacity: 0.07;  top: 14%; right: 24%;  border-radius: 60% 40% 50% 50%; animation: pf-drift-b 12s ease-in-out infinite; animation-delay: -7s; }
+.pf-cell:nth-child(6) { width: 70px;  height: 70px;  background: var(--brand-soft); opacity: 0.13;  bottom: 18%; right: 28%; animation: pf-drift-c 9s ease-in-out infinite; animation-delay: -3s; }
+.pf-cell:nth-child(7) { width: 180px; height: 180px; background: var(--brand);      opacity: 0.06;  top: 42%; left: 18%;  animation: pf-drift-a 14s ease-in-out infinite; animation-delay: -5s; }
+.pf-cell:nth-child(8) { width: 50px;  height: 50px;  background: var(--beige);      opacity: 0.30;  top: 12%; left: 56%;  animation: pf-drift-b 7s ease-in-out infinite; animation-delay: -1s; }
+
+@keyframes pf-drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(12px, -18px) scale(1.04); }
+}
+@keyframes pf-drift-b {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50%       { transform: translate(-10px, 14px) rotate(8deg); }
+}
+@keyframes pf-drift-c {
+  0%, 100% { transform: translate(0, 0); }
+  33%       { transform: translate(8px, -12px); }
+  66%       { transform: translate(-6px, 8px); }
+}
+
+/* Container */
+.pf-container {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* Section header */
+.pf-header {
+  text-align: center;
+  margin-bottom: 100px;
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.pf-header.pf-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pf-eyebrow {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 20px;
+}
+
+.pf-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 700;
+  color: var(--brand-dark);
+  line-height: 1.08;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+/* Floating micro-dots */
+.pf-dot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--brand);
+  animation: pf-dot-bob ease-in-out infinite alternate;
+}
+.pf-dot:nth-child(9)  { top: 18%; left: 28%; opacity: 0.20; animation-duration: 5s; animation-delay: -1s; }
+.pf-dot:nth-child(10) { top: 62%; left: 72%; opacity: 0.18; animation-duration: 7s; animation-delay: -3s; }
+.pf-dot:nth-child(11) { top: 33%; left: 84%; opacity: 0.15; animation-duration: 4s; animation-delay: -2s; background: var(--beige); }
+.pf-dot:nth-child(12) { top: 80%; left: 42%; opacity: 0.22; animation-duration: 6s; animation-delay: -4s; }
+.pf-dot:nth-child(13) { top: 50%; left: 10%; opacity: 0.16; animation-duration: 8s; animation-delay: -5s; background: var(--brand-dark); }
+.pf-dot:nth-child(14) { top: 8%;  left: 50%; opacity: 0.19; animation-duration: 5s; animation-delay: -2s; background: var(--beige); }
+
+@keyframes pf-dot-bob {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-18px); }
+}
+
+/* Cards */
+.pf-card {
+  display: grid;
+  gap: 64px;
+  align-items: center;
+  margin-bottom: 88px;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pf-card--from-left  { grid-template-columns: 1fr 1fr; transform: translateX(-72px) scale(0.97); }
+.pf-card--from-right { grid-template-columns: 1fr 1fr; transform: translateX(72px)  scale(0.97); }
+.pf-card--from-below { grid-template-columns: 1fr 1fr; transform: translateY(56px)  scale(0.97); margin-bottom: 0; }
+.pf-card.pf-visible  { opacity: 1; transform: translateX(0) translateY(0) scale(1); }
+
+.pf-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 18px;
+  line-height: 1.25;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 6px;
+}
+.pf-card-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-dark), var(--brand));
+  transition: width 0.6s ease 0.5s;
+  border-radius: 1px;
+}
+.pf-card.pf-visible .pf-card-title::after { width: 100%; }
+.pf-card-title em { font-style: italic; color: var(--brand); }
+
+.pf-card-body {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* Placeholder panels — no animation */
+.pf-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px dashed var(--beige);
+  border-radius: 10px;
+  background: var(--bg-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  text-align: center;
+  padding: 20px;
+}
+
+.pf-placeholder--sq { aspect-ratio: 1 / 1; }
+
+/* Card 3: two-column media layout */
+.pf-card-media-col { display: flex; flex-direction: column; }
+
+.pf-media-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .pf-container { padding: 0 24px; }
+  .pf-card--from-left,
+  .pf-card--from-right,
+  .pf-card--from-below { grid-template-columns: 1fr; transform: translateY(40px); }
+  .pf-card-image { order: -1; }
+}
+
+/* =============================================
+   End Plasmodium Falciparum section
+   ============================================= */
 
 @media (max-width: 768px) {
   .part-card { grid-template-columns: 1fr; transform: none !important; }
