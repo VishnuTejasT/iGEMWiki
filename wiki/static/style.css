@@ -1837,14 +1837,6 @@ body {
   gap: 16px;
 }
 
-.part-number {
-  font-family: 'Space Mono', 'Courier New', monospace;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  color: var(--brand);
-}
-
 .part-title {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
