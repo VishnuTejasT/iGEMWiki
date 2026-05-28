@@ -69,6 +69,14 @@
     });
   }
 
+  function fireSparks(wrapper, selector) {
+    wrapper.querySelectorAll(selector).forEach(s => {
+      s.classList.remove('pop');
+      void s.offsetWidth;
+      s.classList.add('pop');
+    });
+  }
+
   function initSolution() {
     const pin = makePin('wms-wrapper', '.wms-sticky');
     if (!pin) return;
@@ -81,19 +89,47 @@
     const line2 = pin.wrapper.querySelector('.wms-line2');
     if (!who || !word || !d1 || !d2 || !d3 || !line2) return;
 
+    let line2Was = false;
     pin.onScroll(progress => {
       who.classList.toggle('visible',   progress >= 0.10);
       word.classList.toggle('visible',  progress >= 0.25);
       d1.classList.toggle('visible',    progress >= 0.38);
       d2.classList.toggle('visible',    progress >= 0.51);
       d3.classList.toggle('visible',    progress >= 0.63);
-      line2.classList.toggle('visible', progress >= 0.78);
+      const line2On = progress >= 0.78;
+      if (line2On && !line2Was) fireSparks(pin.wrapper, '.wms-spark');
+      line2Was = line2On;
+      line2.classList.toggle('visible', line2On);
+    });
+  }
+
+  function initIntroEclipse() {
+    const pin  = makePin('intro-eclipse-wrapper', '.intro-eclipse-sticky');
+    if (!pin) return;
+
+    const label = pin.wrapper.querySelector('.intro-label');
+    const drop  = pin.wrapper.querySelector('.intro-logo-drop');
+    const logo  = pin.wrapper.querySelector('.intro-logo');
+    if (!label || !drop || !logo) return;
+
+    let logoWas = false;
+    pin.onScroll(progress => {
+      label.classList.toggle('visible', progress >= 0.08);
+      const logoOn = progress >= 0.20;
+      if (logoOn && !logoWas) {
+        fireSparks(pin.wrapper, '.intro-spark');
+        setTimeout(() => logo.classList.add('wobble'), 820);
+      }
+      if (!logoOn && logoWas) logo.classList.remove('wobble');
+      logoWas = logoOn;
+      drop.classList.toggle('visible', logoOn);
     });
   }
 
   function init() {
     initMalaria();
     initSolution();
+    initIntroEclipse();
   }
 
   if (document.readyState === 'loading') {
