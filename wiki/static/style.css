@@ -848,7 +848,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(83, 26, 10, 0.12);
   min-width: 190px;
-  z-index: 1250;
+  z-index: 1400;
   padding: 6px 0;
   animation: dropFade 0.15s ease;
 }
