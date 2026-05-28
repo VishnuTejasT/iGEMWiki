@@ -746,14 +746,19 @@ body {
 }
 
 #scroll-progress::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translate(50%, -50%);
+  content: none;
+}
+
+#scroll-progress-marker {
+  position: fixed;
+  left: 0;
+  top: 68px;
+  transform: translate(-50%, -50%);
   width: 60px;
   height: 60px;
   background: url('mosqBar.png') center / contain no-repeat;
+  z-index: 1300;
+  pointer-events: none;
 }
 
 /*Navigation */
@@ -836,15 +841,15 @@ body {
 .dropdown {
   display: none;
   position: absolute;
-  top: calc(100% - 14px);
+  top: 100%;
   left: 0;
   background: var(--white);
   border: 1px solid var(--beige);
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(83, 26, 10, 0.12);
   min-width: 190px;
-  z-index: 1300;
-  padding: 18px 0 6px;
+  z-index: 1250;
+  padding: 6px 0;
   animation: dropFade 0.15s ease;
 }
 

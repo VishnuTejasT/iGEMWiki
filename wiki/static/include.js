@@ -16,11 +16,20 @@
 
   /* ===== Scroll progress bar ===== */
   var bar = document.getElementById('scroll-progress');
+  var marker = null;
+  if (bar) {
+    marker = document.createElement('div');
+    marker.id = 'scroll-progress-marker';
+    marker.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(marker);
+  }
   function updateBar() {
     if (!bar) return;
     var scrolled = window.scrollY;
     var total = document.documentElement.scrollHeight - window.innerHeight;
-    bar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+    var progress = total > 0 ? (scrolled / total) * 100 : 0;
+    bar.style.width = progress + '%';
+    if (marker) marker.style.left = progress + '%';
   }
   window.addEventListener('scroll', updateBar, { passive: true });
   updateBar();
