@@ -741,7 +741,7 @@ body {
   width: 0%;
   height: 3px;
   background: linear-gradient(90deg, var(--brand-dark), var(--brand-bright));
-  z-index: 1100;
+  z-index: 1300;
   transition: width 0.08s linear;
 }
 
@@ -757,7 +757,7 @@ body {
   width: 60px;
   height: 60px;
   background: url('mosqBar.png') center / contain no-repeat;
-  z-index: 1300;
+  z-index: 100;
   pointer-events: none;
 }
 
