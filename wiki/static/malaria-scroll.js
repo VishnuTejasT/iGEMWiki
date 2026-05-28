@@ -107,9 +107,10 @@
     const pin  = makePin('intro-eclipse-wrapper', '.intro-eclipse-sticky');
     if (!pin) return;
 
-    const label = pin.wrapper.querySelector('.intro-label');
-    const drop  = pin.wrapper.querySelector('.intro-logo-drop');
-    const logo  = pin.wrapper.querySelector('.intro-logo');
+    const label    = pin.wrapper.querySelector('.intro-label');
+    const drop     = pin.wrapper.querySelector('.intro-logo-drop');
+    const logo     = pin.wrapper.querySelector('.intro-logo');
+    const subtitle = pin.wrapper.querySelector('.intro-subtitle');
     if (!label || !drop || !logo) return;
 
     let logoWas = false;
@@ -123,6 +124,7 @@
       if (!logoOn && logoWas) logo.classList.remove('wobble');
       logoWas = logoOn;
       drop.classList.toggle('visible', logoOn);
+      if (subtitle) subtitle.classList.toggle('visible', progress >= 0.35);
     });
   }
 
