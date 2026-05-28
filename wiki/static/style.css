@@ -836,15 +836,15 @@ body {
 .dropdown {
   display: none;
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(100% - 14px);
   left: 0;
   background: var(--white);
   border: 1px solid var(--beige);
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(83, 26, 10, 0.12);
   min-width: 190px;
-  z-index: 200;
-  padding: 6px 0;
+  z-index: 1300;
+  padding: 18px 0 6px;
   animation: dropFade 0.15s ease;
 }
 
@@ -1909,4 +1909,3 @@ body {
   .part-card--light, .part-card--dark { transform: none; }
   .part-media { min-height: 220px; border-left: none; border-top: 3px solid var(--brand-dark); }
 }
-
